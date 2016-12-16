@@ -27,6 +27,7 @@ export default class Article extends Component {
     toggleOpen = () => {
         this.setState({
             isOpen: !this.state.isOpen
+            console.log("test")
         })
     }
 
