@@ -1,18 +1,10 @@
 import React, { Component } from 'react'
+import CommentList from './CommentList'
 
 export default class Article extends Component {
     state = {
         isOpen: false
     }
-
-/*
-    constructor() {
-        super()
-        this.state = {
-            isOpen: false
-        }
-    }
-*/
 
     render() {
         const { article } = this.props
@@ -20,6 +12,7 @@ export default class Article extends Component {
             <div>
                 <h3 onClick = {this.toggleOpen}>{article.title}</h3>
                 {this.getBody()}
+                <CommentList comments={article.comments}/>
             </div>
         )
     }
@@ -27,7 +20,6 @@ export default class Article extends Component {
     toggleOpen = () => {
         this.setState({
             isOpen: !this.state.isOpen
-            console.log("test")
         })
     }
 
