@@ -4,6 +4,7 @@ import CommentList from './CommentList'
 export default class Article extends Component {
     state = {
         isOpen: false,
+        //лучше внести этот стейт в CommentList, иначе компонент выходит очень прегруженным
         commentsShown: false
     }
 
@@ -22,7 +23,7 @@ export default class Article extends Component {
             isOpen: !this.state.isOpen
         })
     }
-
+    //плохое название метода
     toggleBtnName = () => {
       this.setState({
         commentsShown: !this.state.commentsShown
@@ -31,6 +32,7 @@ export default class Article extends Component {
 
     getComments() {
       if(this.state.commentsShown)
+        //я б эту проверку в CommentList внес
         return <CommentList comments={this.props.article.comments || []}/>
       return null
     }
